@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "@fontsource-variable/schibsted-grotesk";
+@import "@fontsource/ibm-plex-mono/latin-400.css";
+@import "@fontsource/ibm-plex-mono/latin-500.css";
+
+@theme {
+  --color-bg: #0f1013;
+  --color-surface: #15161a;
+  --color-sunk: #0b0c0e;
+  --color-hover: #1a1c21;
+  --color-line: #24262c;
+  --color-line-strong: #34373f;
+  --color-ink: #e8e8ec;
+  --color-muted: #9396a2;
+  --color-faint: #5d606c;
+  --color-accent: #8b7dff;
+  --color-run: #5aa2ff;
+  --color-ok: #5fc79a;
+  --color-warn: #e0b45a;
+  --color-bad: #ee7a7a;
+  --font-sans: "Schibsted Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+html, body { height: 100%; background: var(--color-bg); color: var(--color-ink); }
+body { font-family: var(--font-sans); font-size: 14px; line-height: 1.55; -webkit-font-smoothing: antialiased; font-feature-settings: "ss01"; }
+::selection { background: color-mix(in srgb, var(--color-accent) 35%, transparent); }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 3px; }
+* { scrollbar-width: thin; scrollbar-color: #30333b transparent; }
+.num { font-variant-numeric: tabular-nums; }
+
+.spin { animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse-bar { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.live-bar { animation: pulse-bar 1.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .spin { animation-duration: 3s; } .live-bar { animation: none; } }
